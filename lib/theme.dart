@@ -6,6 +6,7 @@ final lightTheme = ThemeData(
     seedColor: Colors.purple,
     brightness: Brightness.light,
   ),
+  scaffoldBackgroundColor: Colors.grey[200],
   highlightColor: Colors.purple,
   dividerColor: Colors.black38, // black opacity 38%
   sliderTheme: SliderThemeData(
