@@ -5,9 +5,10 @@ final lightTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
     seedColor: Colors.purple,
     brightness: Brightness.light,
+    primaryContainer: Colors.white,
   ),
   scaffoldBackgroundColor: Colors.grey[200],
-  highlightColor: Colors.purple,
+  highlightColor: Colors.white,
   dividerColor: Colors.black38, // black opacity 38%
   sliderTheme: SliderThemeData(
     activeTrackColor: Colors.black38,

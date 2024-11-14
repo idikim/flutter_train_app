@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_train_app/pages/home/widgets/location_box.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -17,6 +16,7 @@ class HomePage extends StatelessWidget {
             Container(
               height: 200,
               decoration: BoxDecoration(
+                color: Colors.white,
                 border: Border.all(
                   color: Theme.of(context).dividerColor,
                 ),
