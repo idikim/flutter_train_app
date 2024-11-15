@@ -39,7 +39,7 @@ final darkTheme = ThemeData(
   ),
 
   cardTheme: CardTheme(
-      color: Colors.grey,
+      color: const Color.fromARGB(61, 158, 158, 158),
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
   highlightColor: Colors.purple,
@@ -52,10 +52,12 @@ final darkTheme = ThemeData(
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(20)),
+      textStyle: WidgetStateProperty.all(
+          const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
       shape: WidgetStateProperty.all(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-      backgroundColor: const WidgetStatePropertyAll(Colors.purple), // 배경색
-      // 전경색 (Text 등 child 위젯의 색상)
+      backgroundColor: const WidgetStatePropertyAll(Colors.purple),
       foregroundColor: const WidgetStatePropertyAll(Colors.white),
     ),
   ),

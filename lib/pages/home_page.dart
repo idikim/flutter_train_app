@@ -65,10 +65,13 @@ class HomePage extends StatelessWidget {
                   )),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              style: const ButtonStyle(),
-              onPressed: () {},
-              child: const Text("좌석 선택"),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: const ButtonStyle(),
+                onPressed: () {},
+                child: const Text("좌석 선택"),
+              ),
             ),
           ],
         ),
