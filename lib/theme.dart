@@ -9,7 +9,6 @@ final lightTheme = ThemeData(
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
 
-  scaffoldBackgroundColor: Colors.grey[200],
   highlightColor: Colors.white,
   dividerColor: Colors.black38, // black opacity 38%
   sliderTheme: const SliderThemeData(
