@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/pages/seat_page.dart';
+import 'package:flutter_train_app/pages/station_list_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,19 +23,28 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     children: [
                       const Spacer(),
-                      const Column(
+                      Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             '출발역',
                             style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(
-                            '선택',
-                            style: TextStyle(fontSize: 40),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const StationListPage()));
+                            },
+                            child: const Text(
+                              '선택',
+                              style: TextStyle(fontSize: 40),
+                            ),
                           ),
                         ],
                       ),
@@ -44,19 +55,28 @@ class HomePage extends StatelessWidget {
                         height: 50, // 세로선의 높이
                       ),
                       const Spacer(),
-                      const Column(
+                      Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             '도착역',
                             style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(
-                            '선택',
-                            style: TextStyle(fontSize: 40),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const StationListPage()));
+                            },
+                            child: const Text(
+                              '선택',
+                              style: TextStyle(fontSize: 40),
+                            ),
                           ),
                         ],
                       ),
@@ -69,7 +89,12 @@ class HomePage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: const ButtonStyle(),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SeatPage()));
+                },
                 child: const Text("좌석 선택"),
               ),
             ),

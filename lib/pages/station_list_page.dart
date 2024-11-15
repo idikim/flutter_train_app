@@ -7,8 +7,12 @@ class StationListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('출발역'),
+        title: const Text(
+          '출발역',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
+      body: Text('result'),
     );
   }
 }
