@@ -11,7 +11,8 @@ List<String> stations = [
   '동대구',
   '경주',
   '울산',
-  '부산'
+  '부산',
+  ''
 ];
 
 class StationListPage extends StatelessWidget {
@@ -23,7 +24,6 @@ class StationListPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text(
             '출발역',
-            style: TextStyle(fontSize: 18),
           ),
         ),
         body: ListView.separated(
@@ -34,12 +34,16 @@ class StationListPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Center(
-                        child: Text(
-                          stations[index],
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text(
+                            stations[index],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
