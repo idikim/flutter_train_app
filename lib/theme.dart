@@ -10,7 +10,6 @@ final lightTheme = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
 
   highlightColor: Colors.white,
-  scaffoldBackgroundColor: Colors.grey[200],
   dividerColor: Colors.black38, // black opacity 38%
 
   textButtonTheme: const TextButtonThemeData(

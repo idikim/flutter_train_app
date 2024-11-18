@@ -8,7 +8,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.grey[200]
+          : Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: const Text('기차 예매'),
       ),
