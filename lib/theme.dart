@@ -10,13 +10,13 @@ final lightTheme = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
 
   highlightColor: Colors.white,
+  scaffoldBackgroundColor: Colors.grey[200],
   dividerColor: Colors.black38, // black opacity 38%
-  sliderTheme: const SliderThemeData(
-    activeTrackColor: Colors.black38,
-    inactiveTrackColor: Colors.black38,
-    trackHeight: 1,
-    thumbColor: Colors.purple,
-  ),
+
+  textButtonTheme: const TextButtonThemeData(
+      style:
+          ButtonStyle(foregroundColor: WidgetStatePropertyAll(Colors.black))),
+
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       padding: const WidgetStatePropertyAll(EdgeInsets.all(20)),
@@ -43,12 +43,11 @@ final darkTheme = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
   highlightColor: Colors.purple,
   dividerColor: Colors.white30, // white opacity 30%
-  sliderTheme: const SliderThemeData(
-    activeTrackColor: Colors.white30, // 현재값 기준 왼쪽 색상
-    inactiveTrackColor: Colors.white30, // 현재값 기준 오른쪽 색상
-    trackHeight: 1, // 막대기 높이(두께)
-    thumbColor: Colors.purple, // 동그라미 (현재값)
-  ),
+
+  textButtonTheme: const TextButtonThemeData(
+      style:
+          ButtonStyle(foregroundColor: WidgetStatePropertyAll(Colors.white))),
+
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       padding: const WidgetStatePropertyAll(EdgeInsets.all(20)),

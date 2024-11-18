@@ -16,14 +16,15 @@ List<String> stations = [
 ];
 
 class StationListPage extends StatelessWidget {
-  const StationListPage({super.key});
+  final String title;
+  const StationListPage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            '출발역',
+          title: Text(
+            title,
           ),
         ),
         body: ListView.separated(

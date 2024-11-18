@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: const Text('기차 예매'),
       ),
@@ -21,8 +22,8 @@ class HomePage extends StatelessWidget {
               child: SizedBox(
                   height: 200,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Spacer(),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -33,28 +34,30 @@ class HomePage extends StatelessWidget {
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          GestureDetector(
-                            onTap: () {
+                          TextButton(
+                            onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const StationListPage()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const StationListPage(title: '출발역'),
+                                ),
+                              );
                             },
                             child: const Text(
                               '선택',
-                              style: TextStyle(fontSize: 40),
+                              style: TextStyle(
+                                fontSize: 40,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      const Spacer(),
                       Container(
                         width: 2, // 세로선의 두께
                         color: Colors.grey[400], // 세로선의 색깔
                         height: 50, // 세로선의 높이
                       ),
-                      const Spacer(),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -65,13 +68,15 @@ class HomePage extends StatelessWidget {
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          GestureDetector(
-                            onTap: () {
+                          TextButton(
+                            onPressed: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const StationListPage()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const StationListPage(title: '도착역'),
+                                ),
+                              );
                             },
                             child: const Text(
                               '선택',
@@ -79,8 +84,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ),
-                      const Spacer()
+                      )
                     ],
                   )),
             ),
