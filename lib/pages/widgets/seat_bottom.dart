@@ -45,20 +45,17 @@ class _SeatBottomState extends State<SeatBottom> {
                           ),
                           CupertinoDialogAction(
                             onPressed: () {
-                              // HomePage로 이동하고 뒤로가기 버튼 완전히 비활성화
+                              Navigator.pop(context); // 먼저 Dialog를 닫음
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const HomePage()),
-                                (route) => false, // 모든 Route를 제거
+                                (route) => false,
                               );
                             },
-                            child: GestureDetector(
-                              onTap: () => Navigator.pop(context),
-                              child: const Text(
-                                "확인",
-                                style: TextStyle(color: Colors.blue),
-                              ),
+                            child: const Text(
+                              "확인",
+                              style: TextStyle(color: Colors.blue),
                             ),
                           ),
                         ],
