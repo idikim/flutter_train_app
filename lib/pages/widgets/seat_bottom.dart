@@ -31,6 +31,8 @@ class _SeatBottomState extends State<SeatBottom> {
                       context: context,
                       builder: (context) => CupertinoAlertDialog(
                         title: const Text("예매 하시겠습니까?"),
+                        content: Text(
+                            '좌석 : ${widget.selectedRow}-${widget.selectedCol}'),
                         actions: [
                           CupertinoDialogAction(
                             onPressed: () {
