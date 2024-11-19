@@ -9,9 +9,9 @@ class SeatPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('좌석 선택'),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
@@ -32,7 +32,39 @@ class SeatPage extends StatelessWidget {
                       fontWeight: FontWeight.bold))
             ],
           ),
-          Row()
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // 첫 번째 상자
+                Container(
+                    decoration: ShapeDecoration(
+                        color: Colors.purple,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                    width: 24,
+                    height: 24),
+
+                // 첫 번째 글자
+                const SizedBox(width: 4),
+                const Text('선택됨'),
+                // 여백
+                const SizedBox(width: 20),
+                // 두 번째 상자
+                Container(
+                    decoration: ShapeDecoration(
+                        color: Colors.grey[300],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                    width: 24,
+                    height: 24),
+                // 두 번째 글자
+                const SizedBox(width: 4),
+                const Text('선택안됨'),
+              ],
+            ),
+          )
         ],
       ),
     );
