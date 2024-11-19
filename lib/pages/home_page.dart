@@ -25,6 +25,18 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _navigateToSeatPage() {
+    if (_departureStation != '선택' && _arrivalStation != '선택') {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const SeatPage()));
+    } else {
+      // 알림 메시지 표시 (선택되지 않은 버튼이 있다는 메시지)
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('출발역과 도착역을 모두 선택해주세요.')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,12 +109,7 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: const ButtonStyle(),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SeatPage()));
-                },
+                onPressed: _navigateToSeatPage,
                 child: const Text("좌석 선택"),
               ),
             ),
