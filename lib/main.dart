@@ -17,7 +17,13 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/stationList': (context) => StationListPage(
+              title: ModalRoute.of(context)!.settings.arguments as String,
+            ),
+      },
     );
   }
 }

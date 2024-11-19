@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/seat_page.dart';
-import 'station_list_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,20 +9,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String departureStation = '선택';
-  String arrivalStation = '선택'; // 초기값을 '선택'으로 설정
+  String _departureStation = '선택';
+  String _arrivalStation = '선택'; // 초기값을 '선택'으로 설정
 
-  void _navigateToStationList(String title) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => StationListPage(title: title),
-      ),
-    ).then((value) {
-      setState(() {
-        departureStation = value ?? '선택';
-        arrivalStation = value ?? '선택'; // 값이 null일 경우 다시 '선택'으로 설정
-      });
+  void _navigateToStationList(String title) async {
+    final selectedStation =
+        await Navigator.pushNamed(context, '/stationList', arguments: title)
+            as String?;
+    setState(() {
+      if (title == '출발역') {
+        _departureStation = selectedStation ?? '선택';
+      } else {
+        _arrivalStation = selectedStation ?? '선택';
+      }
     });
   }
 
@@ -61,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                           GestureDetector(
                             onTap: () => _navigateToStationList('출발역'),
                             child: Text(
-                              departureStation,
+                              _departureStation,
                               style: const TextStyle(fontSize: 40),
                             ),
                           ),
@@ -85,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                           GestureDetector(
                             onTap: () => _navigateToStationList('도착역'),
                             child: Text(
-                              arrivalStation,
+                              _arrivalStation,
                               style: const TextStyle(fontSize: 40),
                             ),
                           ),
