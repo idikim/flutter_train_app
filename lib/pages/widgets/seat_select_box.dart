@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SeatSelectBox extends StatefulWidget {
-  const SeatSelectBox(this.selectedRow, this.selectedCol, this.onSelected);
+  const SeatSelectBox(this.selectedRow, this.selectedCol, this.onSelected,
+      {super.key});
   final int? selectedRow;
   final String? selectedCol;
   final void Function(int rowNum, String colNum) onSelected;
@@ -15,7 +16,7 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -31,43 +32,43 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
                 ],
               ),
               row(1),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(2),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(3),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(4),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(5),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(6),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(7),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(8),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(9),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(10),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(11),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(12),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(13),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(14),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(15),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(16),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(17),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(18),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(19),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               row(20),
             ],
           ),
@@ -84,8 +85,8 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
         height: 50,
         child: Center(
             child: Text(
-          '$alphabet',
-          style: TextStyle(fontSize: 18),
+          alphabet,
+          style: const TextStyle(fontSize: 18),
         )),
       ),
     );
@@ -113,7 +114,7 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
         child: Center(
           child: Text(
             '$rowNum',
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
           ),
         ),
       ),
@@ -122,7 +123,7 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
 
   Widget seat(int rowNum, String colNum) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 2),
       child: GestureDetector(
         onTap: () {
           widget.onSelected(rowNum, colNum);
@@ -135,7 +136,7 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
                   widget.selectedRow == rowNum && widget.selectedCol == colNum
                       ? Colors.purple
                       : Theme.of(context).brightness == Brightness.dark
-                          ? Color.fromARGB(61, 158, 158, 158)
+                          ? const Color.fromARGB(61, 158, 158, 158)
                           : Colors.grey[300],
               borderRadius: BorderRadius.circular(8)),
         ),

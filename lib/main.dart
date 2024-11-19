@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
-        '/home': (context) => HomePage(),
+        '/': (context) => const HomePage(),
+        '/home': (context) => const HomePage(),
         '/stationList': (context) {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             selectedStation: args['selectedStation'],
           );
         },
-        '/seatPage': (context) => SeatPage()
+        '/seatPage': (context) => const SeatPage()
       },
     );
   }

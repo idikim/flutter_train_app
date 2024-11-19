@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home_page.dart';
 
 class SeatBottom extends StatefulWidget {
-  SeatBottom(this.selectedRow, this.selectedCol);
+  const SeatBottom(this.selectedRow, this.selectedCol, {super.key});
   final int? selectedRow;
   final String? selectedCol;
 
@@ -47,7 +47,7 @@ class _SeatBottomState extends State<SeatBottom> {
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()),
+                                    builder: (context) => const HomePage()),
                                 (route) => false, // 모든 Route를 제거
                               );
                             },

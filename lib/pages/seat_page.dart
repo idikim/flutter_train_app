@@ -28,7 +28,7 @@ class _SeatPageState extends State<SeatPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('좌석 선택'),
+        title: const Text('좌석 선택'),
       ),
       body: Column(
         children: [
@@ -39,7 +39,7 @@ class _SeatPageState extends State<SeatPage> {
                 child: Center(
                   child: Text(
                     '$departureStation',
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 30,
                         color: Colors.purple,
                         fontWeight: FontWeight.bold),
@@ -64,7 +64,7 @@ class _SeatPageState extends State<SeatPage> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             child: seatInfo(),
           ),
           SeatSelectBox(selectedRow, selectedCol, onSelected),
@@ -88,23 +88,23 @@ class _SeatPageState extends State<SeatPage> {
             height: 24),
 
         // 첫 번째 글자
-        SizedBox(width: 4),
-        Text('선택됨'),
+        const SizedBox(width: 4),
+        const Text('선택됨'),
         // 여백
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         // 두 번째 상자
         Container(
             decoration: ShapeDecoration(
                 color: Theme.of(context).brightness == Brightness.dark
-                    ? Color.fromARGB(61, 158, 158, 158)
+                    ? const Color.fromARGB(61, 158, 158, 158)
                     : Colors.grey[300],
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8))),
             width: 24,
             height: 24),
         // 두 번째 글자
-        SizedBox(width: 4),
-        Text('선택안됨'),
+        const SizedBox(width: 4),
+        const Text('선택안됨'),
       ],
     );
   }
