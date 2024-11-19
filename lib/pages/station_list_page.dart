@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
-List<String> stations = [
-  '수서',
-  '동탄',
-  '평택지제',
-  '천안아산',
-  '오송',
-  '대전',
-  '김천구미',
-  '동대구',
-  '경주',
-  '울산',
-  '부산',
-  ''
-];
-
 class StationListPage extends StatelessWidget {
   final String title;
-  const StationListPage({super.key, required this.title});
+
+  StationListPage({super.key, required this.title});
+
+  final List<String> stations = [
+    '수서',
+    '동탄',
+    '평택지제',
+    '천안아산',
+    '오송',
+    '대전',
+    '김천구미',
+    '동대구',
+    '경주',
+    '울산',
+    '부산',
+    ''
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +33,11 @@ class StationListPage extends StatelessWidget {
             itemBuilder: (context, index) {
               return SizedBox(
                 height: 50,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            stations[index],
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                child: ListTile(
+                  title: Text(stations[index]),
+                  onTap: () {
+                    Navigator.pop(context, stations[index]); // 선택된 역 정보 반환
+                  },
                 ),
               );
             },

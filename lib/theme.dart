@@ -12,6 +12,9 @@ final lightTheme = ThemeData(
   highlightColor: Colors.white,
   dividerColor: Colors.black38, // black opacity 38%
 
+  textTheme: const TextTheme(
+      bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+
   textButtonTheme: const TextButtonThemeData(
       style:
           ButtonStyle(foregroundColor: WidgetStatePropertyAll(Colors.black))),
@@ -42,6 +45,9 @@ final darkTheme = ThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
   highlightColor: Colors.purple,
   dividerColor: Colors.white30, // white opacity 30%
+
+  textTheme: const TextTheme(
+      bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
 
   textButtonTheme: const TextButtonThemeData(
       style:

@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/seat_page.dart';
-import 'package:flutter_train_app/pages/station_list_page.dart';
+import 'station_list_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String departureStation = '선택';
+  String arrivalStation = '선택'; // 초기값을 '선택'으로 설정
+
+  void _navigateToStationList(String title) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => StationListPage(title: title),
+      ),
+    ).then((value) {
+      setState(() {
+        departureStation = value ?? '선택';
+        arrivalStation = value ?? '선택'; // 값이 null일 경우 다시 '선택'으로 설정
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +58,11 @@ class HomePage extends StatelessWidget {
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const StationListPage(title: '출발역'),
-                                ),
-                              );
-                            },
-                            child: const Text(
-                              '선택',
-                              style: TextStyle(
-                                fontSize: 40,
-                              ),
+                          GestureDetector(
+                            onTap: () => _navigateToStationList('출발역'),
+                            child: Text(
+                              departureStation,
+                              style: const TextStyle(fontSize: 40),
                             ),
                           ),
                         ],
@@ -70,19 +82,11 @@ class HomePage extends StatelessWidget {
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const StationListPage(title: '도착역'),
-                                ),
-                              );
-                            },
-                            child: const Text(
-                              '선택',
-                              style: TextStyle(fontSize: 40),
+                          GestureDetector(
+                            onTap: () => _navigateToStationList('도착역'),
+                            child: Text(
+                              arrivalStation,
+                              style: const TextStyle(fontSize: 40),
                             ),
                           ),
                         ],
