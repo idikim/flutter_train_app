@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SeatBottom extends StatelessWidget {
-  const SeatBottom({super.key});
+  const SeatBottom(this.selectedRow, this.selectedCol);
+  final int? selectedRow;
+  final String? selectedCol;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class SeatBottom extends StatelessWidget {
                   showCupertinoDialog(
                     context: context,
                     builder: (context) => CupertinoAlertDialog(
-                      title: const Text("예매 하시겠습니까?"),
+                      title: Text(selectedRow == null && selectedCol == null
+                          ? '선택된 좌석이 없습니다.'
+                          : "예매 하시겠습니까?"),
                       actions: [
                         CupertinoDialogAction(
                           onPressed: () {

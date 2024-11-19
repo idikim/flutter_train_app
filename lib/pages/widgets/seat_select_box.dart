@@ -1,59 +1,137 @@
 import 'package:flutter/material.dart';
 
 class SeatSelectBox extends StatelessWidget {
-  const SeatSelectBox({super.key});
+  const SeatSelectBox(this.selectedRow, this.selectedCol, this.onSelected);
+  final int? selectedRow;
+  final String? selectedCol;
+  final void Function(int rowNum, String colNum) onSelected;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                seat(),
-                SizedBox(
-                  width: 4,
-                ),
-                seat(),
-                SizedBox(
-                  width: 4,
-                ),
-                const SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                      '1',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                seat(),
-                SizedBox(
-                  width: 4,
-                ),
-                seat(),
-              ],
-            )
-          ],
+      child: ListView(
+        padding: EdgeInsets.symmetric(vertical: 20),
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  colNumber('A'),
+                  colNumber('B'),
+                  colNumber(''),
+                  colNumber('C'),
+                  colNumber('D'),
+                ],
+              ),
+              row(1),
+              SizedBox(height: 8),
+              row(2),
+              SizedBox(height: 8),
+              row(3),
+              SizedBox(height: 8),
+              row(4),
+              SizedBox(height: 8),
+              row(5),
+              SizedBox(height: 8),
+              row(6),
+              SizedBox(height: 8),
+              row(7),
+              SizedBox(height: 8),
+              row(8),
+              SizedBox(height: 8),
+              row(9),
+              SizedBox(height: 8),
+              row(10),
+              SizedBox(height: 8),
+              row(11),
+              SizedBox(height: 8),
+              row(12),
+              SizedBox(height: 8),
+              row(13),
+              SizedBox(height: 8),
+              row(14),
+              SizedBox(height: 8),
+              row(15),
+              SizedBox(height: 8),
+              row(16),
+              SizedBox(height: 8),
+              row(17),
+              SizedBox(height: 8),
+              row(18),
+              SizedBox(height: 8),
+              row(19),
+              SizedBox(height: 8),
+              row(20),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding colNumber(String alphabet) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: Center(
+            child: Text(
+          '$alphabet',
+          style: TextStyle(fontSize: 18),
+        )),
+      ),
+    );
+  }
+
+  Row row(int rowNum) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        seat(rowNum, 'A'),
+        seat(rowNum, 'B'),
+        rowNumber(rowNum),
+        seat(rowNum, 'C'),
+        seat(rowNum, 'D'),
+      ],
+    );
+  }
+
+  Padding rowNumber(int rowNum) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: Center(
+          child: Text(
+            '$rowNum',
+            style: TextStyle(fontSize: 18),
+          ),
         ),
       ),
     );
   }
 
-  Widget seat() {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-          color: Colors.grey[300], borderRadius: BorderRadius.circular(8)),
+  Widget seat(int rowNum, String colNum) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: GestureDetector(
+        onTap: () {
+          onSelected(rowNum, colNum);
+        },
+        child: Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+              color: selectedRow == rowNum && selectedCol == colNum
+                  ? Colors.purple
+                  : Colors.grey[300],
+              borderRadius: BorderRadius.circular(8)),
+        ),
+      ),
     );
   }
 }
