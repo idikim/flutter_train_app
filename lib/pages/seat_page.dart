@@ -95,7 +95,9 @@ class _SeatPageState extends State<SeatPage> {
         // 두 번째 상자
         Container(
             decoration: ShapeDecoration(
-                color: Colors.grey[300],
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Color.fromARGB(61, 158, 158, 158)
+                    : Colors.grey[300],
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8))),
             width: 24,
