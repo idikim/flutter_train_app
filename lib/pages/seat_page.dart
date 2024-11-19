@@ -3,13 +3,14 @@ import 'package:flutter_train_app/pages/widgets/seat_bottom.dart';
 import 'package:flutter_train_app/pages/widgets/seat_select_box.dart';
 
 class SeatPage extends StatefulWidget {
+  const SeatPage({super.key});
+
   @override
   State<SeatPage> createState() => _SeatPageState();
 }
 
 class _SeatPageState extends State<SeatPage> {
   int? selectedRow;
-
   String? selectedCol;
 
   void onSelected(int rowNum, String colNum) {
@@ -21,35 +22,49 @@ class _SeatPageState extends State<SeatPage> {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Map;
+    final departureStation = args['departureStation'];
+    final arrivalStation = args['arrivalStation'];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('좌석 선택'),
+        title: Text('좌석 선택'),
       ),
       body: Column(
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                '수서',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.purple,
-                    fontWeight: FontWeight.bold),
+              Expanded(
+                child: Center(
+                  child: Text(
+                    '$departureStation',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.purple,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
-              Icon(
-                Icons.arrow_circle_right_outlined,
-                size: 30,
+              const Center(
+                child: Icon(
+                  Icons.arrow_circle_right_outlined,
+                  size: 30,
+                ),
               ),
-              Text('부산',
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.purple,
-                      fontWeight: FontWeight.bold))
+              Expanded(
+                child: Center(
+                  child: Text('$arrivalStation',
+                      style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.purple,
+                          fontWeight: FontWeight.bold)),
+                ),
+              )
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: EdgeInsets.only(top: 10),
             child: seatInfo(),
           ),
           SeatSelectBox(selectedRow, selectedCol, onSelected),
@@ -73,10 +88,10 @@ class _SeatPageState extends State<SeatPage> {
             height: 24),
 
         // 첫 번째 글자
-        const SizedBox(width: 4),
-        const Text('선택됨'),
+        SizedBox(width: 4),
+        Text('선택됨'),
         // 여백
-        const SizedBox(width: 20),
+        SizedBox(width: 20),
         // 두 번째 상자
         Container(
             decoration: ShapeDecoration(
@@ -86,8 +101,8 @@ class _SeatPageState extends State<SeatPage> {
             width: 24,
             height: 24),
         // 두 번째 글자
-        const SizedBox(width: 4),
-        const Text('선택안됨'),
+        SizedBox(width: 4),
+        Text('선택안됨'),
       ],
     );
   }

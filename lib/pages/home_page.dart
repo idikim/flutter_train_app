@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_train_app/pages/seat_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,8 +26,10 @@ class _HomePageState extends State<HomePage> {
 
   void _navigateToSeatPage() {
     if (_departureStation != '선택' && _arrivalStation != '선택') {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => SeatPage()));
+      Navigator.pushNamed(context, '/seatPage', arguments: {
+        'departureStation': _departureStation,
+        'arrivalStation': _arrivalStation
+      });
     } else {
       // 알림 메시지 표시 (선택되지 않은 버튼이 있다는 메시지)
       ScaffoldMessenger.of(context).showSnackBar(

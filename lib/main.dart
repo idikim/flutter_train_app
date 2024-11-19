@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home_page.dart';
+import 'package:flutter_train_app/pages/seat_page.dart';
 import 'package:flutter_train_app/pages/station_list_page.dart';
 import 'package:flutter_train_app/theme.dart';
 
@@ -18,10 +19,12 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => HomePage(),
+        '/home': (context) => HomePage(),
         '/stationList': (context) => StationListPage(
               title: ModalRoute.of(context)!.settings.arguments as String,
             ),
+        '/seatPage': (context) => SeatPage()
       },
     );
   }
