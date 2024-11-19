@@ -58,48 +58,54 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            '출발역',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          GestureDetector(
-                            onTap: () => _navigateToStationList('출발역'),
-                            child: Text(
-                              _departureStation,
-                              style: const TextStyle(fontSize: 40),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              '출발역',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
                             ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        width: 2, // 세로선의 두께
-                        color: Colors.grey[400], // 세로선의 색깔
-                        height: 50, // 세로선의 높이
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            '도착역',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          GestureDetector(
-                            onTap: () => _navigateToStationList('도착역'),
-                            child: Text(
-                              _arrivalStation,
-                              style: const TextStyle(fontSize: 40),
+                            GestureDetector(
+                              onTap: () => _navigateToStationList('출발역'),
+                              child: Text(
+                                _departureStation,
+                                style: const TextStyle(fontSize: 40),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                      Center(
+                        child: Container(
+                          width: 2, // 세로선의 두께
+                          color: Colors.grey[400], // 세로선의 색깔
+                          height: 50, // 세로선의 높이
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              '도착역',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            GestureDetector(
+                              onTap: () => _navigateToStationList('도착역'),
+                              child: Text(
+                                _arrivalStation,
+                                style: const TextStyle(fontSize: 40),
+                              ),
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   )),
