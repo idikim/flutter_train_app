@@ -47,7 +47,7 @@ class SeatBottom extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text("좌석 선택"),
+                child: const Text("예매 하기"),
               ),
             ),
             const Spacer()

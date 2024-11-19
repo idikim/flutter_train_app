@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/widgets/seat_bottom.dart';
 import 'package:flutter_train_app/pages/widgets/seat_select_box.dart';
-import 'package:flutter_train_app/theme.dart';
 
 class SeatPage extends StatelessWidget {
   const SeatPage({super.key});

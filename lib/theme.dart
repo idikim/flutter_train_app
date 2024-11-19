@@ -21,7 +21,7 @@ final lightTheme = ThemeData(
 
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      padding: const WidgetStatePropertyAll(EdgeInsets.all(20)),
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(17.5)),
       textStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
       shape: WidgetStateProperty.all(
@@ -55,7 +55,7 @@ final darkTheme = ThemeData(
 
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
-      padding: const WidgetStatePropertyAll(EdgeInsets.all(20)),
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(17.5)),
       textStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
       shape: WidgetStateProperty.all(
