@@ -12,9 +12,14 @@ class _HomePageState extends State<HomePage> {
   String _arrivalStation = '선택'; // 초기값을 '선택'으로 설정
 
   void _navigateToStationList(String title) async {
+    final String otherSelectedStation =
+        title == '출발역' ? _arrivalStation : _departureStation;
     final selectedStation =
-        await Navigator.pushNamed(context, '/stationList', arguments: title)
-            as String?;
+        await Navigator.pushNamed(context, '/stationList', arguments: {
+      'title': title,
+      'selectedStation': otherSelectedStation, // 이전에 선택된 역 정보 전달
+    }) as String?;
+
     setState(() {
       if (title == '출발역') {
         _departureStation = selectedStation ?? '선택';

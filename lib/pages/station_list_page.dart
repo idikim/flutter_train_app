@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class StationListPage extends StatelessWidget {
   final String title;
+  final String? selectedStation;
 
-  StationListPage({super.key, required this.title});
+  StationListPage(
+      {super.key, required this.title, required this.selectedStation});
 
   final List<String> stations = [
     '수서',
@@ -22,6 +24,16 @@ class StationListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final String title = args['title'];
+    final String otherSelectedStation = args['selectedStation'];
+
+    final filteredStations = stations
+        .where((station) =>
+            station != selectedStation && station != otherSelectedStation)
+        .toList();
+
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -29,14 +41,15 @@ class StationListPage extends StatelessWidget {
           ),
         ),
         body: ListView.separated(
-            itemCount: stations.length,
+            itemCount: filteredStations.length,
             itemBuilder: (context, index) {
               return SizedBox(
                 height: 50,
                 child: ListTile(
-                  title: Text(stations[index]),
+                  title: Text(filteredStations[index]),
                   onTap: () {
-                    Navigator.pop(context, stations[index]); // 선택된 역 정보 반환
+                    Navigator.pop(
+                        context, filteredStations[index]); // 선택된 역 정보 반환
                   },
                 ),
               );

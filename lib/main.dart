@@ -21,9 +21,14 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/home': (context) => HomePage(),
-        '/stationList': (context) => StationListPage(
-              title: ModalRoute.of(context)!.settings.arguments as String,
-            ),
+        '/stationList': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return StationListPage(
+            title: args['title'],
+            selectedStation: args['selectedStation'],
+          );
+        },
         '/seatPage': (context) => SeatPage()
       },
     );
