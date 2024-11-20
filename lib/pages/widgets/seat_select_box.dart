@@ -126,6 +126,7 @@ class _SeatSelectBoxState extends State<SeatSelectBox> {
       padding: const EdgeInsets.symmetric(horizontal: 2),
       child: GestureDetector(
         onTap: () {
+          setState(() {});
           widget.onSelected(rowNum, colNum);
         },
         child: Container(

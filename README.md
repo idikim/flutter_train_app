@@ -1,16 +1,16 @@
-# flutter_train_app
+# :train: 기차 예매 서비스
 
-A new Flutter project.
+- Flutter로 구현한 기차 예매 서비스 어플리케이션입니다.
+- system 상의 light / dark mode에 따라 테마가 전환됩니다.
 
-## Getting Started
+## 🏠 홈페이지
 
-This project is a starting point for a Flutter application.
+- 출발역 / 도착역을 선택 후 좌석 선택이 가능합니다.
 
-A few resources to get you started if this is your first Flutter project:
+## 🛤️ 기차역 리스트
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 수서 ~ 부산까지 11개의 기차역 리스트를 제공합니다.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🪑 좌석 선택창
+
+- 4열 x 20석 = 총 80석의 좌석이 마련되어있습니다.
